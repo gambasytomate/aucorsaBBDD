@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Class AucorsaView<<Principal View>>{
+
+
+}
+
+@enduml
