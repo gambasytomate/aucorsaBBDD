@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Class Routes{
+    - final String matricula
+    - final int numConductor
+    - final int idLugar
+    - String diaSemana
+}
+
+Class Bus {
+    - final String matricula
+    - String tipo
+    - String licencia
+}
+
+Class Conductor {
+    - final int numConductor
+    - String nombre
+    - String apellido
+    - String imagen
+}
+
+Class Lugar {
+    - final int idLugar
+    - String cp
+    - String ciudad
+    - String ubicacion
+    }
+
+    Routes *-- Lugar
+    Routes *-- Conductor
+    Routes *-- Bus
+
+@enduml

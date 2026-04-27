@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+Class Lugar{
+    - final int idLugar
+    - String cp
+    - String ciudad
+    - String ubicacion
+    }
+
+@enduml

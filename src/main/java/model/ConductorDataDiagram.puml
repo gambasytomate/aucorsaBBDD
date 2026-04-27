@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/class-diagram
+Class Conductor {
+    - final int numConductor
+    - String nombre
+    - String apellido
+    - String imagen
+}
+
+@enduml
