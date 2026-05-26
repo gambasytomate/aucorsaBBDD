@@ -8,7 +8,7 @@ import java.awt.*;
 
         // ==================== ATRIBUTOS ====================
 
-        // Tabla visual donde se mostrarán los conductores
+        // Tabla visual donde se mostrarán las rutas
         JTable tablaVista = new JTable();
 
         // Modelo de datos que alimenta la tabla
@@ -28,7 +28,7 @@ import java.awt.*;
 
             // Inicializa el modelo con las columnas de Conductor, sin filas iniciales
             modeloTabla = new DefaultTableModel(
-                    new String[]{"NumConductor", "Nombre", "Apellido"}, 0) {
+                    new String[]{"register", "numdriver", "idplace"}, 0) {
 
                 // Hace no editable ninguna celda de la tabla
                 @Override

@@ -10,7 +10,7 @@ public class Routes {
 
     // ==================== ATRIBUTOS ====================
 
-    private final String matricula;
+    private final String registro;
     private final int numConductor;
     private final int idLugar;
     private String diaSemana;
@@ -25,15 +25,8 @@ public class Routes {
      * @param idLugar Identificador del lugar
      * @param diaSemana Día de la semana del recorrido
      */
-    public Routes(String matricula, int numConductor, int idLugar, String diaSemana){
-        this.matricula = matricula;
-        this.numConductor = numConductor;
-        this.idLugar = idLugar;
-        this.diaSemana = diaSemana;
-    }
-    // ==================== CONSTRUCTOR ====================
-    public Routes(String matricula, int numConductor, int idLugar, String diaSemana, String imagen) {
-        this.matricula = matricula;
+    public Routes(String registro, int numConductor, int idLugar, String diaSemana, String imagen) {
+        this.registro = registro;
         this.numConductor = numConductor;
         this.idLugar = idLugar;
         this.diaSemana = diaSemana;
@@ -41,15 +34,33 @@ public class Routes {
     }
 
     // ==================== GETTERS Y SETTERS ====================
-    public String getMatricula() { return matricula; }
 
-    public int getNumConductor() { return numConductor; }
 
-    public int getIdLugar() { return idLugar; }
+    public String getRegistro() {
+        return registro;
+    }
 
-    public String getDiaSemana() { return diaSemana; }
-    public void setDiaSemana(String diaSemana) { this.diaSemana = diaSemana; }
+    public int getNumConductor() {
+        return numConductor;
+    }
 
-    public String getImagen() { return imagen; }
-    public void setImagen(String imagen) { this.imagen = imagen; }
+    public int getIdLugar() {
+        return idLugar;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
 }

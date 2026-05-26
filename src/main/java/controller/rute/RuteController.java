@@ -1,13 +1,16 @@
 package controller.rute;
 
+import controller.DetailsRutesController;
 import controller.dao.RuteDAO;
 import controller.db.ConnectionBBDD;
 import model.Routes;
 import view.rute.AddRuteView;
-import view.rute.ModifyRuteView;
+import view.rute.DetailsRuteView;
 import view.rute.RutePanel;
 
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,6 +25,17 @@ public class RuteController {
         public RuteController(RutePanel panel, RuteDAO ruteDAO) {
             this.rutaPanel = panel;
             this.ruteDAO = ruteDAO;
+
+            rutaPanel.getTablaVista().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (e.getClickCount() == 2 && rutaPanel.getTablaVista().getSelectedRow() != -1) {
+                        DetailsRuteView vista = new DetailsRuteView();
+                        new DetailsRutesController(vista, RuteController.this, rutaPanel, rutas, ruteDAO);
+                    }
+                }
+            });
+
             cargarRutas();
         }
 
@@ -34,7 +48,7 @@ public class RuteController {
                 rutaPanel.getModeloTabla().setRowCount(0);
                 for (Routes r : rutas) {
                     rutaPanel.getModeloTabla().addRow(new Object[]{
-                            r.getMatricula(),
+                            r.getRegistro(),
                             r.getNumConductor(),
                             r.getIdLugar(),
                             r.getDiaSemana()
@@ -57,15 +71,13 @@ public class RuteController {
                 return;
             }
 
-            String matricula = (String) rutaPanel.getModeloTabla().getValueAt(fila, 0);
-            int numConductor = (int) rutaPanel.getModeloTabla().getValueAt(fila, 1);
-            int idLugar = (int) rutaPanel.getModeloTabla().getValueAt(fila, 2);
+            String register = (String) rutaPanel.getModeloTabla().getValueAt(fila, 0);
 
             int opcion = JOptionPane.showConfirmDialog(rutaPanel, "¿Eliminar la ruta seleccionada?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
             if (opcion != JOptionPane.YES_OPTION) return;
 
             try (Connection con = ConnectionBBDD.getConexion()) {
-                if (ruteDAO.eliminarRuta(con, matricula, numConductor, idLugar)) {
+                if (ruteDAO.eliminarRuta(con, register)) {
                     JOptionPane.showMessageDialog(rutaPanel, "Ruta eliminada correctamente.");
                     cargarRutas();
                 } else {

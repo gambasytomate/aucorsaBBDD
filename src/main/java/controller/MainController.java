@@ -4,6 +4,8 @@ import controller.bus.BusController;
 import controller.conductor.ConductorController;
 import controller.dao.BusDAO;
 import controller.dao.ConductorDAO;
+import controller.dao.RuteDAO;
+import controller.rute.RuteController;
 import view.AucorsaView;
 
 import javax.swing.*;
@@ -21,6 +23,7 @@ public class MainController {
 
     private final BusController busController;
     private final ConductorController conductorController;
+    private final RuteController ruteController;
     private final AucorsaView aucorsaView;
 
     // ==================== CONSTRUCTOR ====================
@@ -39,6 +42,9 @@ public class MainController {
 
         ConductorDAO conductorDAO = new ConductorDAO();
         conductorController = new ConductorController(aucorsaView.getConductorPanel(), conductorDAO);
+
+        RuteDAO ruteDAO = new RuteDAO();
+        ruteController = new RuteController(aucorsaView.getRoutePanel(),ruteDAO);
 
         aucorsaView.getBtnRefresh().addActionListener(e -> refrescarTabla());
 
@@ -83,7 +89,7 @@ public class MainController {
         switch (tabActiva()) {
             case "Bus" -> busController.cargarBuses();
             case "Drivers" -> conductorController.cargarConductores();
-            case "Route" -> { /* TODO: RouteController */ }
+            case "Route" -> ruteController.cargarRutas();
         }
     }
 
@@ -95,8 +101,7 @@ public class MainController {
         switch (tabActiva()) {
             case "Bus" -> busController.añadirBus();
             case "Drivers" -> conductorController.añadirConductor();
-            case "Route" -> JOptionPane.showMessageDialog(
-                    aucorsaView, "Funcionalidad de rutas en desarrollo.");
+            case "Route" -> ruteController.añadirRuta();
         }
     }
 
@@ -108,7 +113,7 @@ public class MainController {
         switch (tabActiva()) {
             case "Bus" -> busController.eliminarBus();
             case "Drivers" -> conductorController.eliminarConductor();
-            case "Route" -> { /* TODO */ }
+            case "Route" -> ruteController.eliminarRuta();
         }
     }
 
@@ -120,7 +125,7 @@ public class MainController {
         switch (tabActiva()) {
             case "Bus" -> busController.modificarBus();
             case "Drivers" -> conductorController.modificarConductor();
-            case "Route" -> { /* TODO */ }
+            case "Route" -> ruteController.modificarRuta();
         }
     }
 }

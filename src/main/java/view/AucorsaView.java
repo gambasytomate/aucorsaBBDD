@@ -2,6 +2,7 @@ package view;
 
 import view.bus.BusPanel;
 import view.conductor.ConductorPanel;
+import view.rute.RutePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,10 +23,7 @@ public class AucorsaView extends JFrame {
     // Paneles de cada sección
     private BusPanel busPanel = new BusPanel();
     private ConductorPanel conductorPanel = new ConductorPanel();
-    private JPanel routePanel = new JPanel(); // Asegúrate de cambiarlo a RutaPanel cuando lo crees
-
-    // Etiqueta de estado en la parte superior de la ventana
-    private JLabel etiquetaEstado = new JLabel("Estado...");
+    private RutePanel routePanel = new RutePanel();
 
     // Botones de la barra de herramientas
     JButton btnAdd = new JButton("Añadir");
@@ -74,7 +72,6 @@ public class AucorsaView extends JFrame {
 
         // Coloca la botonería arriba y la etiqueta de estado abajo en el norte
         panelNorte.add(botoneriaPanel, BorderLayout.NORTH);
-        panelNorte.add(etiquetaEstado, BorderLayout.SOUTH);
 
         // Añade el panel norte a la ventana
         add(panelNorte, BorderLayout.NORTH);
@@ -122,7 +119,14 @@ public class AucorsaView extends JFrame {
      * CAMBIO/AÑADIDO: Obtiene el panel dedicado a las rutas.
      * Requerido por el MainController para gestionar eventos en la tercera pestaña.
      */
-    public JPanel getRutaPanel() { return routePanel; }
+
+    public RutePanel getRoutePanel() {
+        return routePanel;
+    }
+
+    public void setRoutePanel(RutePanel routePanel) {
+        this.routePanel = routePanel;
+    }
 
     /*
      * Obtiene el botón de añadir nuevo registro.

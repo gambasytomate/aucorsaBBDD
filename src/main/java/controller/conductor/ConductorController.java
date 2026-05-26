@@ -2,12 +2,9 @@ package controller.conductor;
 
 
 import controller.DetailsDriverController;
-import controller.dao.BusDAO;
 import controller.dao.ConductorDAO;
 import controller.db.ConnectionBBDD;
-import model.Bus;
 import model.Conductor;
-import view.bus.BusPanel;
 import view.conductor.AddConductorView;
 import view.conductor.ConductorPanel;
 import view.conductor.DetailsBusView;

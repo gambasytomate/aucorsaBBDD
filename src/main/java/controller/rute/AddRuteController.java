@@ -62,7 +62,7 @@ import java.sql.SQLException;
 
             boolean addSuccess = false;
             try (Connection con = ConnectionBBDD.getConexion()) {
-                addSuccess = ruteDAO.insertarRuta(con, ruta);
+                addSuccess = ruteDAO.añadirRuta(con, ruta);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
