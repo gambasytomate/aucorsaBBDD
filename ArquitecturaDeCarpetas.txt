@@ -1,0 +1,68 @@
+\---main
+    |
+    +---Imagenes
+    | --Aquí puedes meter las imagenes que utilices para cada tabla
+    |       abuDriver.jpeg
+    |       busConductor.jpeg
+    |       ConductorDriver.jpeg
+    |
+    \---java
+        +---app 
+        |       Principal.java <---Hay que ejecutarlo para que inicie todo el programa
+        |
+        +---controller <--Importante no tocar a menos que sea necesario
+        |   |   --Los Details son con los que puedes añadir imagenes
+        |   |   DetailsBusController.java
+        |   |   DetailsDriverController.java
+        |   |   DetailsRutesController.java
+        |   |   MainController.java
+        |   |
+        |   +---bus
+        |   |       AddBusController.java
+        |   |       BusController.java
+        |   |       ModifyBusController.java
+        |   |
+        |   +---conductor
+        |   |       AddConductorController.java
+        |   |       ConductorController.java
+        |   |       ModifyConductorController.java
+        |   |
+        |   +---dao
+        |   |       BusDAO.java
+        |   |       ConductorDAO.java
+        |   |       RuteDAO.java
+        |   |
+        |   +---db
+        |   |       ConnectionBBDD.java
+        |   |
+        |   \---rute
+        |           AddRuteController.java
+        |           ModifyRuteController.java
+        |           RuteController.java
+        |
+        +---model
+        |       Bus.java
+        |       Conductor.java
+        |       Lugar.java
+        |       Routes.java
+        |
+        \---view
+            |   AucorsaView.java
+            |
+            +---bus
+            |       AddBusView.java
+            |       BusPanel.java
+            |       DetailsBusView.java
+            |       ModifyBusView.java
+            |
+            +---conductor
+            |       AddConductorView.java
+            |       ConductorPanel.java
+            |       DetailsBusView.java
+            |       ModifyConductorView.java
+            |
+            \---rute
+                    AddRuteView.java
+                    DetailsRuteView.java
+                    ModifyRuteView.java
+                    RutePanel.java
