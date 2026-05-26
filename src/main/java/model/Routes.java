@@ -1,0 +1,55 @@
+package model;
+
+/**
+ * Clase Routes
+ * Representa la relación entre Bus, Conductor y Lugar,
+ * indicando qué conductor conduce qué bus, a qué lugar y en qué día.
+ * @author Marta
+ */
+public class Routes {
+
+    // ==================== ATRIBUTOS ====================
+
+    private final String matricula;
+    private final int numConductor;
+    private final int idLugar;
+    private String diaSemana;
+    private String imagen;
+
+    // ==================== CONSTRUCTOR ====================
+
+    /*
+     * Constructor de la clase Routes.
+     * @param matricula Matrícula del bus
+     * @param numConductor Número identificativo del conductor
+     * @param idLugar Identificador del lugar
+     * @param diaSemana Día de la semana del recorrido
+     */
+    public Routes(String matricula, int numConductor, int idLugar, String diaSemana){
+        this.matricula = matricula;
+        this.numConductor = numConductor;
+        this.idLugar = idLugar;
+        this.diaSemana = diaSemana;
+    }
+    // ==================== CONSTRUCTOR ====================
+    public Routes(String matricula, int numConductor, int idLugar, String diaSemana, String imagen) {
+        this.matricula = matricula;
+        this.numConductor = numConductor;
+        this.idLugar = idLugar;
+        this.diaSemana = diaSemana;
+        this.imagen = imagen;
+    }
+
+    // ==================== GETTERS Y SETTERS ====================
+    public String getMatricula() { return matricula; }
+
+    public int getNumConductor() { return numConductor; }
+
+    public int getIdLugar() { return idLugar; }
+
+    public String getDiaSemana() { return diaSemana; }
+    public void setDiaSemana(String diaSemana) { this.diaSemana = diaSemana; }
+
+    public String getImagen() { return imagen; }
+    public void setImagen(String imagen) { this.imagen = imagen; }
+}

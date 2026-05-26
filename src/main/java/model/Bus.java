@@ -1,46 +1,84 @@
 package model;
 
+/**
+ * Clase Bus
+ * Representa un autobús con su matrícula, tipo y licencia.
+ * @author Marta
+ */
 public class Bus {
-    String id_bus;
-    String tipo;
-    String licencia;
 
-    public Bus(String id_bus, String tipo, String licencia) {
-        this.id_bus = id_bus;
-        this.tipo = tipo;
+    // ==================== ATRIBUTOS ====================
+
+    private final String matricula;
+    private String tipo;
+    private String licencia;
+    private String imagen;
+
+    // ==================== CONSTRUCTOR ====================
+
+    /*
+     * Constructor de la clase Bus.
+     * @param matricula Matrícula o identificador del autobús
+     * @param tipo Tipo de autobús
+     * @param licencia Licencia del autobús
+     */
+    public Bus(String matricula, String tipo, String licencia, String imagen) {
+        this.matricula = matricula;
         this.licencia = licencia;
-    }
-
-    public String getId_bus() {
-        return id_bus;
-    }
-
-    public void setId_bus(String id_bus) {
-        this.id_bus = id_bus;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
         this.tipo = tipo;
+        this.imagen = imagen;
     }
 
-    public String getLicencia() {
-        return licencia;
+    // ==================== GETTERS ====================
+
+    /*
+     * Obtiene la matrícula del autobús.
+     * @return matrícula del autobús
+     */
+    public String getMatricula(){ return matricula; }
+
+    /*
+     * Obtiene el tipo de autobús.
+     * @return tipo del autobús
+     */
+    public String getTipo(){ return tipo; }
+
+    /*
+     * Modifica el tipo de autobús.
+     * @param tipo tipo del autobús
+     */
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+    /*
+     * Obtiene la licencia del autobús.
+     * @return licencia del autobús
+     */
+    public String getLicencia(){ return licencia; }
+
+    /*
+     * Modifica la licencia de autobús
+     * @param licencia licencia del autobús
+     */
+    public void setLicencia(String licencia) { this.licencia = licencia; }
+
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setLicencia(String licencia) {
-        this.licencia = licencia;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
+    // ==================== OTROS MÉTODOS ====================
+
+    /*
+     * Devuelve información en forma de texto del objeto Bus.
+     * @return información del autobús en formato String
+     */
     @Override
-    public String toString() {
-        return "Bus{" +
-                "id_bus='" + id_bus + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", licencia='" + licencia + '\'' +
-                '}';
+    public String toString(){
+        return "[Matrícula: " + matricula +
+                ", Tipo: " + tipo +
+                ", Licencia: " + licencia + "]";
     }
 }
